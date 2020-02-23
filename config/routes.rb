@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get 'blogs/users'
+  resources :blogs
+
   devise_for :users, controllers: {
    omniauth_callbacks: "users/omniauth_callbacks",
    sessions: 'users/sessions'
