@@ -33,6 +33,7 @@ gem 'aws-sdk-s3'
 gem 'fog-aws'
 
 gem 'will_paginate'
+gem 'will_paginate-bootstrap4'
 
 gem 'stripe'
 # Reduces boot times through caching; required in config/boot.rb
