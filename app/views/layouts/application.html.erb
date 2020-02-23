@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
     <% if !user_signed_in? %>
     <%= link_to "Signin", new_user_session_path %>
     <%= link_to 'Signin with Google', user_google_oauth2_omniauth_authorize_path %>
@@ -24,5 +25,7 @@
     <% end %>
     <% end %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
+
   </body>
 </html>
