@@ -32,6 +32,8 @@ gem 'carrierwave'
 gem 'aws-sdk-s3'
 gem 'fog-aws'
 
+gem 'will_paginate'
+
 gem 'stripe'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

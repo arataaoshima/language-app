@@ -9,6 +9,7 @@ class BlogsController < ApplicationController
 
   def users
     @blogs = Blog.all
+    @blogs = Blog.paginate(page: params[:page], per_page: 3)
   end
 
   # GET /blogs/1
