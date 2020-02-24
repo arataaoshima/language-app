@@ -31,6 +31,7 @@ gem 'image_processing', '~> 1.2'
 gem 'carrierwave'
 gem 'aws-sdk-s3'
 gem 'fog-aws'
+gem 'rmagick'
 
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
