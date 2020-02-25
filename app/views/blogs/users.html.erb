@@ -3,8 +3,17 @@
 </div>
 <div class="card-group">
  <div class="container">
+
+
+  <%= form_with(scope: :search, url: "/blogs/users", method: :get, local: true) do |f| %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+
        <%= will_paginate @blogs %>
-       
+
   <div class="row">
     <% @blogs.each do |blog| %>
      <div class="col-md-4 col-lg-4 one-row">

@@ -1,8 +1,17 @@
-<%= @user.name %>
-<%= @user.email %>
+<div class="title-wrapper">
+  <h1 class="text-center">User Info</h1>
+</div>
 
-<%= form_with url: "/update/#{@user.id}" do |form| %>
-  <%= form.text_field :email, value:@user.email %>
-  <%= form.text_field :name, value:@user.name  %>
-  <%= form.submit %>
-<% end %>
+<div class="container">
+  <%= form_with url: "/update/#{@user.id}" do |form| %>
+  <p>
+    <%= form.label :emaiil %>
+    <%= form.text_field :email, value:@user.email, class:"form-control"  %>
+  </p>
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name, value:@user.name, class:"form-control"  %>
+  </p>
+    <%= form.submit class:"btn btn-outline-secondary" %>
+  <% end %>
+</div>
