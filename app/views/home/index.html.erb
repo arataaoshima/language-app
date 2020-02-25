@@ -6,6 +6,8 @@
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
+        <th scope="col">Last Login</th>
+        <th scope="col">Login Times</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +16,8 @@
         <td><%= user.id %></td>
         <td><%= link_to user.name, "/profile/#{user.id}" %></td>
         <td><%= user.email %></td>
+        <td><%= user.current_sign_in_at %></td>
+        <td><%= user.sign_in_count %></td>
       </tr>
       <% end %>
     </tbody>
