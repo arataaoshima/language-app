@@ -23,8 +23,8 @@
       <p>Subscription: <%= @user.payment %></p>
       <p>Stripe ID: <%= @user.stripe_id%></p>
       <p>Subscription ID: <%= @user.subscription_id%></p>
-      <p>Purchase Date: <% if @user.purchate_date != nil %>
-            <%= Time.at("#{@user.purchate_date}".to_i).to_datetime.strftime('%y-%m-%d') %>
+      <p>Purchase Date: <% if @user.purchase_date != nil %>
+            <%= Time.at("#{@user.purchase_date}".to_i).to_datetime.strftime('%y-%m-%d') %>
           <% else %>
             N/A
           <% end %>

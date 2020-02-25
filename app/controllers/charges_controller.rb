@@ -20,7 +20,7 @@ class ChargesController < ApplicationController
     current_user.payment = true
     current_user.stripe_id = customer.id
     current_user.subscription_id = subscription.id
-    current_user.purchate_date = subscription.created
+    current_user.purchase_date = subscription.created
     current_user.save
 
   #  charge = Stripe::Charge.create({

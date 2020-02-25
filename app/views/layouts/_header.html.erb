@@ -23,9 +23,6 @@
           <%= link_to "Signout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
-      <li class="nav-item">
-        <div class="nav-link"><%= link_to "Signout", destroy_user_session_path, method: :delete %></div>
-      </li>
       <% else %>
       <li class="nav-item">
         <div class="nav-link"><%= link_to "Login", new_user_session_path %></div>
@@ -51,7 +48,7 @@
       </li>
       <% end %>
       <li class="nav-item">
-        <a class="nav-link" href="/charges/new" tabindex="-1" aria-disabled="true">Donation</a>
+        <a class="nav-link" href="/charges/new" tabindex="-1" aria-disabled="true">Subscribe</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
