@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'profile/:id' => 'home#profile'
   post'update/:id' => "home#update"
+
+  post "/unsubscribe" =>"charges#unsubscribe"
   resources :charges
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
