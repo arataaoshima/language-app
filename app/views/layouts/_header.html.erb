@@ -10,8 +10,18 @@
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <% if user_signed_in? %>
-      <li class="nav-item">
-        <div class="nav-link">Logged in as:<%= current_user.email %></div>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.name %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "My Account", edit_user_registration_path, class: "dropdown-item" %>
+
+          <a class="dropdown-item" href="/blogs">Write Blog</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+          <%= link_to "Signout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
       </li>
       <li class="nav-item">
         <div class="nav-link"><%= link_to "Signout", destroy_user_session_path, method: :delete %></div>
@@ -27,17 +37,19 @@
         <div class="nav-link"><%= link_to 'Signin with Google', user_google_oauth2_omniauth_authorize_path %></div>
       </li>
       <% end %>
+      <% if user_signed_in? && current_user.admin == true %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Admin
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/home/index">User List</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="/blogs">Write Blog</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
+      <% end %>
       <li class="nav-item">
         <a class="nav-link" href="/charges/new" tabindex="-1" aria-disabled="true">Donation</a>
       </li>

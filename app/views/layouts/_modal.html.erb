@@ -10,11 +10,33 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="form-group"><%= f.label :email %><br />
+            <%= f.email_field :email, class:"form-control" %></div>
+
+            <div class="form-group"><%= f.label :name %><br />
+            <%= f.text_field :name, class:"form-control"  %></div>
+
+            <div class="form-group"><%= f.label :password %><br />
+            <%= f.password_field :password, class:"form-control"  %></div>
+
+            <div class="form-group"><%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, class:"form-control"  %></div>
+
+            <div class="form-group"><%= f.submit "Sign up" ,class:"btn btn-outline-primary" %></div>
+            <div class="form-group">
+            <a href="/users/auth/google_oauth2">
+            <p>Sign up with Google
+            <i class="fab fa-google"></i>
+            </p>
+            </a>
+            </div>
+            <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

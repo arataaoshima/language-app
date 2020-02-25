@@ -8,8 +8,7 @@ class BlogsController < ApplicationController
   end
 
   def users
-    @blogs = Blog.all
-    @blogs = Blog.paginate(page: params[:page], per_page: 3)
+    @blogs = Blog.paginate(page: params[:page], per_page: 3).order("updated_at DESC")
   end
 
   # GET /blogs/1

@@ -1,0 +1,8 @@
+<%= @user.name %>
+<%= @user.email %>
+
+<%= form_with url: "/update/#{@user.id}" do |form| %>
+  <%= form.text_field :email, value:@user.email %>
+  <%= form.text_field :name, value:@user.name  %>
+  <%= form.submit %>
+<% end %>
