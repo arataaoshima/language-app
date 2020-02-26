@@ -8,7 +8,7 @@ class ChargesController < ApplicationController
     #@amount = 500
     if current_user.stripe_id == nil
     customer = Stripe::Customer.create({
-      email: params[:stripeEmail],
+      email: current_user.email,
       source: params[:stripeToken],
     })
     else
