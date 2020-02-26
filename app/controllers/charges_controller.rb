@@ -5,12 +5,16 @@ class ChargesController < ApplicationController
 
   def create
     # Amount in cents
-    @amount = 500
-
+    #@amount = 500
+    if current_user.stripe_id == nil
     customer = Stripe::Customer.create({
       email: params[:stripeEmail],
       source: params[:stripeToken],
     })
+    else
+    customer = ::Stripe::Customer.retrieve(current_user.stripe_id)
+    ##customer.save
+    end
 
     subscription = Stripe::Subscription.create({
     customer: customer.id,
@@ -22,6 +26,7 @@ class ChargesController < ApplicationController
     current_user.subscription_id = subscription.id
     current_user.purchase_date = subscription.created
     current_user.save
+
 
   #  charge = Stripe::Charge.create({
   #    customer: customer.id,
