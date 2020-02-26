@@ -31,3 +31,41 @@ img:hover{
 .blog-btn {
   margin-left:10px;
 }
+
+.link-no-effect {
+ color:white;
+ background-color:white;
+}
+
+
+.link-no-effect :hover{
+   background-color:white;
+ color:white;
+}
+
+.top-content-wrapper {
+  padding-bottom: 100px;
+}
+
+.top-top {
+  padding-bottom: 100px;
+}
+
+.top-img {
+  width:100%;
+  height:100%;
+}
+
+.top-message{
+  font-size: 1.1em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.icon-black {
+  color:#e54747;
+}
+
+.icon-black:hover {
+  color:black;
+}
