@@ -5,7 +5,7 @@
 </h1>
 <% if @blog.category %>
 <h5 class="text-center title-wrapper">
-  <%= @blog.category.category_name %>
+  <%= link_to @blog.category.category_name, "/categories/#{@blog.category_id}", class: "btn btn-outline-secondary" %>
 </h5>
 <% end %>
 <div class="container blog-content-wrapper">

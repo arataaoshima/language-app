@@ -12,6 +12,12 @@
     <%= form.label :name %>
     <%= form.text_field :name, value:@user.name, class:"form-control"  %>
   </p>
+  <p>Admin?
+    <%= form.label :admin, 'Yes'%>
+    <%= form.radio_button :admin, true, {:checked => @user.admin}  %>
+    <%= form.label :admin, 'No'%>
+    <%= form.radio_button :admin, false %>
+  </p>
     <%= form.submit class:"btn btn-outline-secondary" %>
   <% end %>
     <div class="oth-info">

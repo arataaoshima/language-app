@@ -17,6 +17,7 @@ class HomeController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
+    @user.admin = params[:admin]
     if @user.save
       redirect_to "/home/index"
     else
