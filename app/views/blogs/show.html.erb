@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1 class="text-center title-wrapper">
   <%= @blog.title %>
-</p>
-<p>
-  <strong>Title:</strong>
+</h1>
+<% if @blog.category %>
+<h5 class="text-center title-wrapper">
+  <%= @blog.category.category_name %>
+</h5>
+<% end %>
+<div class="container blog-content-wrapper">
   <%= @blog.content %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+  <%= link_to 'Edit', edit_blog_path(@blog) %> |
+  <%= link_to 'Back', blogs_path %>
+</div>

@@ -10,4 +10,6 @@ class Blog < ApplicationRecord
     end
   end
 
+ belongs_to :category
+
 end
