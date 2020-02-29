@@ -24,6 +24,8 @@
       <h3 class="text-center">Other Information</h3>
       <p>Login times: <%= @user.sign_in_count %></p>
       <p>Registration Date: <%= @user.created_at %></p>
+      <p>Autehntication Email Sent at: <%= @user.confirmation_sent_at %></p>
+      <p>Email Comfirmation Date: <%= @user.confirmed_at %></p>
       <p>Last Login: <%= @user.current_sign_in_at %></p>
       <p>Admin: <%= @user.admin %></p>
       <p>Subscription: <%= @user.payment %></p>
