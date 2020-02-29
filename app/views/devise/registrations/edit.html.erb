@@ -2,7 +2,7 @@
   <h2 class="text-center">Edit My Account</h2>
 </div>
 
-<div class="container">
+<div class="container my-page-wrapper">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -41,11 +41,34 @@
     </div>
   <% end %>
 
+  <% if current_user.payment == true %>
   <%= link_to "Cancel Subscription", "/unsubscribe", data: { confirm: "Are you sure?" }, method: :post  %>
+  <% end %>
+  <div class="text-right">
+  <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+  Delete Account Forever
+  </button>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-outline-danger" %></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</br>
 
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
   <%= link_to "Back", :back %>
 
