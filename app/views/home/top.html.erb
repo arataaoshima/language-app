@@ -39,7 +39,7 @@
     </div>
   </div>
   <!-- Button trigger modal -->
-
+  <% if !user_signed_in? %>
   <div class="title-wrapper">
     <h2 class="text-center">Signup for free</h2>
   </div>
@@ -48,5 +48,5 @@
         Signup
       </button>
     </div>
-
+   <% end %>
   </div>
