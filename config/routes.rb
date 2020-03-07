@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :groups
+
+  get 'quiz/:category_id/:group_id/:order_id' => 'quizzes#question'
+  post 'quizzes/check/:id' => 'quizzes#check'
+  resources :quizzes
   resources :categories
   get 'blogs/users'
   resources :blogs

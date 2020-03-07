@@ -1,0 +1,10 @@
+<div class="title-wrapper">
+  <h1 class="text-center"><%= @quiz.content %></h1>
+</div>
+
+<div class="container">
+<%= form_with(url: "/quizzes/check/#{@quiz.id}", method: :post, local: true)  do |form| %>
+<%= form.text_field :answer, class:"form-control" %>
+<%= form.submit %>
+<% end %>
+</div>

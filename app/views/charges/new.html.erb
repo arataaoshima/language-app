@@ -1,3 +1,8 @@
+<div class="title-wrapper">
+  <h1 class="text-center">Subscribe</h1>
+</div>
+
+
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -6,7 +11,7 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: $5.00</span>
+      <span>Amount: $10.00</span>
     </label>
   </article>
 
@@ -14,6 +19,8 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-email=<%= current_user.email %>
           data-description="A month's subscription"
-          data-amount="500"
+          data-amount="1000"
           data-locale="auto"></script>
 <% end %>
+
+<%= link_to "Back to Home", root_path, class:"btn btn-outline-secondary" %>
