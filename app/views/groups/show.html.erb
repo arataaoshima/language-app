@@ -20,7 +20,7 @@
         <tr>
           <td><%= quiz.id %></td>
           <td><%= quiz.category.category_name %></td>
-          <td><%= quiz.content %></td>
+          <td><%= link_to quiz.content, edit_quiz_path(quiz) %></td>
           <td><%= quiz.order %></td>
         </tr>
       <% end %>

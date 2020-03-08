@@ -1,6 +1,11 @@
-<h1>Editing Quiz</h1>
-
+<div class="title-wrapper">
+  <h1 class="text-center">Editing Quiz</h1>
+</div>
+<div class="container">
 <%= render 'form', quiz: @quiz %>
 
-<%= link_to 'Show', @quiz %> |
-<%= link_to 'Back', quizzes_path %>
+<div class="blog-table-wrapper">
+  <%= link_to 'Show', @quiz, class:"btn btn-outline-secondary" %> |
+  <%= link_to 'Back', quizzes_path, class:"btn btn-outline-secondary"  %>
+</div>  
+</div>

@@ -20,8 +20,8 @@
       <tr>
         <td><%= quiz.content %></td>
         <td><%= quiz.answer %></td>
-        <td><%= quiz.category_id %></td>
-        <td><%= quiz.group_id %></td>
+        <td><%= quiz.category.category_name %></td>
+        <td><%= quiz.group.name %></td>
         <td><%= quiz.order %></td>
         <td><%= link_to 'Show', quiz %></td>
         <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
