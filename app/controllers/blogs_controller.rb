@@ -10,6 +10,7 @@ class BlogsController < ApplicationController
   def users
     @blogs = Blog.search(params[:search]).paginate(page: params[:page], per_page: 3).order("updated_at DESC")
   end
+  
 
   # GET /blogs/1
   # GET /blogs/1.json

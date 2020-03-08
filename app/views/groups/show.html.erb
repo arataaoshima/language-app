@@ -1,18 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+  <div class="title-wrapper">
+    <h1 class="text-center"><%= @group.name %></h1>
+  </div>
 
-<p>
-  <strong>Quizzes:</strong></br>
-  <% @group.quizzes.each do |quiz| %>
-  <%= quiz.id %>
-  <%= quiz.content %>
-  <%= quiz.answer %></br>
-  <% end %>
-</p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Language</th>
+        <th>Content</th>
+        <th>Order</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @group.quizzes.each do |quiz| %>
+        <tr>
+          <td><%= quiz.id %></td>
+          <td><%= quiz.category.category_name %></td>
+          <td><%= quiz.content %></td>
+          <td><%= quiz.order %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Edit', edit_group_path(@group), class:"btn btn-outline-secondary" %> |
+  <%= link_to 'Back', groups_path, class:"btn btn-outline-secondary" %>
+</div>

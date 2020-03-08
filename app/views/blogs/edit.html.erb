@@ -1,6 +1,9 @@
-<h1>Editing Blog</h1>
-
+<div class="title-wrapper">
+<h1 class="text-center">Editing Blog</h1>
+</div>
 <%= render 'form', blog: @blog %>
 
-<%= link_to 'Show', @blog %> |
-<%= link_to 'Back', blogs_path %>
+<div class="blog-table-wrapper text-center">
+<%= link_to 'Show', @blog, class:"btn btn-outline-secondary" %> |
+<%= link_to 'Back', blogs_path, class:"btn btn-outline-secondary"  %>
+</div>

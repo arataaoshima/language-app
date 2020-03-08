@@ -10,6 +10,9 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @category = Category.find(params[:id])
+    @blogs = @category.blogs.search(params[:search]).paginate(page: params[:page], per_page: 3).order("updated_at DESC")
+    @groups = Group.all
   end
 
   # GET /categories/new

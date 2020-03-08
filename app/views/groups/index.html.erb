@@ -1,8 +1,10 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>Groups</h1>
-
-<table>
+<div class="title-wrapper">
+  <h1 class="text-center">Groups</h1>
+</div>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -24,4 +26,5 @@
 
 <br>
 
-<%= link_to 'New Group', new_group_path %>
+<%= link_to 'New Group', new_group_path, class:"btn btn-outline-secondary" %>
+</div>
