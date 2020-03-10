@@ -31,11 +31,14 @@
 
 <% if user_signed_in? %>
   <div class="title-wrapper">
-    <h2 class="text-center">Quizzes</h2>
+    <h2 class="text-center">Learning Units</h2>
   </div>
   <div class="blog-table-wrapper text-center">
   <% @groups.each do |group| %>
-    <%= link_to group.name, "/quiz/#{@category.id}/#{group.id}/1", class:"btn btn-outline-secondary" %>
+  <p>
+    <%= link_to "#{group.name} Word Quiz", "/quiz/#{@category.id}/#{group.id}/1", class:"btn btn-outline-secondary" %>
+    <%= link_to "#{group.name} Lectures", "/quiz/#{@category.id}/#{group.id}/1", class:"btn btn-outline-secondary" %>
+  </p>
   <% end %>
   </div>
 <% else %>
