@@ -37,7 +37,7 @@
   <% @groups.each do |group| %>
   <p>
     <%= link_to "#{group.name} Word Quiz", "/quiz/#{@category.id}/#{group.id}/1", class:"btn btn-outline-secondary" %>
-    <%= link_to "#{group.name} Lectures", "/quiz/#{@category.id}/#{group.id}/1", class:"btn btn-outline-secondary" %>
+    <%= link_to "#{group.name} Lectures", "/lectures/#{@category.id}/#{group.id}", class:"btn btn-outline-secondary" %>
   </p>
   <% end %>
   </div>
