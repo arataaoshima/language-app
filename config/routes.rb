@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'lectures/:category_id/:group_id' => "videos#group_index"
   resources :videos
   resources :groups
-
+  get '/registrations' => "home#registrations"
   get 'quiz/:category_id/:group_id/:order_id' => 'quizzes#question'
   post 'quizzes/check/:id' => 'quizzes#check'
   resources :quizzes
