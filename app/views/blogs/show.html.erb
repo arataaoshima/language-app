@@ -10,7 +10,7 @@
 <% end %>
 <div class="container blog-content-wrapper">
   <%= @blog.content %>
-  <% if current_user && current_user.adin = true %>
+  <% if current_user && current_user.admin = true %>
     <%= link_to 'Edit', edit_blog_path(@blog), class:"btn btn-outline-secondary"  %> |
     <%= link_to 'Back', blogs_path, class:"btn btn-outline-secondary"  %>
   <% else %>

@@ -51,7 +51,9 @@
     </button>
 </div>
 <% end %>
+<% if user_signed_in? && current_user.admin == true %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
+<% end %>
 
 </div>
