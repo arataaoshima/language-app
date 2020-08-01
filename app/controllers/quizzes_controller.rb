@@ -17,12 +17,15 @@ class QuizzesController < ApplicationController
 
     if @quiz.answer == params[:answer]
       if Quiz.find_by(category_id: @quiz.category_id, group_id: @quiz.group_id, order: next_quiz_order)
+        flash[:answer_message] = "正解！"
         redirect_to "/quiz/#{@quiz.category_id}/#{@quiz.group_id}/#{next_quiz_order}"
       else
-        redirect_to root_path
+        flash[:answer_message] = "Quiz of this Lesson Completed！"
+        redirect_to "/categories/#{@quiz.category_id}"
       end
       #redirect_to root_path
     else
+      flash[:wrong_message] = "はずれ！！"
       render 'quizzes/question'
     end
 

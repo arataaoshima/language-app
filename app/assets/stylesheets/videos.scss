@@ -1,3 +1,14 @@
 // Place all the styles related to the Videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.video-wrapper {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.video-title {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}

@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
+<% if flash[:answer_message] %>
+<div class="alert alert-success"><%= flash[:answer_message] %>
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+<% end %>
 <div class="container">
 
   <div class="title-wrapper">
@@ -8,6 +13,7 @@
   </div>
   <h2 class="text-center">Blogs</h2>
     <%= will_paginate @blogs%>
+
   <div class="row">
     <% @blogs.each do |blog| %>
      <div class="col-md-4 col-lg-4 one-row">
@@ -29,31 +35,68 @@
   </div>
 
 
-<% if user_signed_in? %>
+<div class="lectures-wrapper">
+  <% if user_signed_in? %>
+
+    <div class="title-wrapper">
+      <h2 class="text-center">Learning Units</h2>
+    </div>
+    <% @videos.each do |video| %>
+    <div class="card">
+      <a href="/videos/<%= video.id%>">
+
+    <div class="card-body">
+      <%= video.title %>
+    </div>
+      </a>
+  </div>
+    </br>
+    <% end %>
+  <!--
+    <div class="blog-table-wrapper text-center">
+    <% @groups.each do |group| %>
+    <p>
+      <%= link_to "#{group.name} Word Quiz", "/quiz/#{@category.id}/#{group.id}/1", class:"btn btn-outline-secondary" %>
+      <%= link_to "#{group.name} Lectures", "/lectures/#{@category.id}/#{group.id}", class:"btn btn-outline-secondary" %>
+    </p>
+    <% end %>
+
+    </div>
+
+    <div class="row">
+      <% @groups.each do |group| %>
+       <div class="col-md-4 col-lg-4 one-row">
+          <div class="card h-100">
+            <a href="/blogs/<%= group.id %>">
+              <div class="row-height">
+              </div>
+            </a>
+            <div class="card-body">
+              <%= link_to "Lectures", "/lectures/#{@category.id}/#{group.id}", class:"btn btn-outline-secondary" %>
+                  <%= link_to "Quiz", "/quiz/#{@category.id}/#{group.id}/1", class:"btn btn-outline-secondary" %>
+              <h5 class="card-title"><%= group.name %></h5>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    </div>
+-->
+
+  <% else %>
   <div class="title-wrapper">
-    <h2 class="text-center">Learning Units</h2>
+    <h2 class="text-center">Signup for free</h2>
+    </div>
+    <div class="text-center category-btn ">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
+        Signup
+      </button>
   </div>
-  <div class="blog-table-wrapper text-center">
-  <% @groups.each do |group| %>
-  <p>
-    <%= link_to "#{group.name} Word Quiz", "/quiz/#{@category.id}/#{group.id}/1", class:"btn btn-outline-secondary" %>
-    <%= link_to "#{group.name} Lectures", "/lectures/#{@category.id}/#{group.id}", class:"btn btn-outline-secondary" %>
-  </p>
   <% end %>
-  </div>
-<% else %>
-<div class="title-wrapper">
-  <h2 class="text-center">Signup for free</h2>
-  </div>
-  <div class="text-center category-btn ">
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
-      Signup
-    </button>
+  <% if user_signed_in? && current_user.admin == true %>
+  <%= link_to 'Edit', edit_category_path(@category) %> |
+  <%= link_to 'Back', categories_path %>
+  <% end %>
 </div>
-<% end %>
-<% if user_signed_in? && current_user.admin == true %>
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
-<% end %>
+
 
 </div>

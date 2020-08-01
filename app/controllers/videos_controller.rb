@@ -10,7 +10,7 @@ class VideosController < ApplicationController
   def group_index
     @videos = Video.where(category_id: params[:category_id], group_id: params[:group_id])
     @category = Category.find(params[:category_id])
-    @group = Group.find(params[:group_id])
+    #@group = Group.find(params[:group_id])
   end
 
   # GET /videos/1

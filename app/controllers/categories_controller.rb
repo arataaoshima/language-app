@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @blogs = @category.blogs.search(params[:search]).paginate(page: params[:page], per_page: 3).order("updated_at DESC")
     @groups = Group.all
+    @videos = Video.where(category_id: @category.id)
   end
 
   # GET /categories/new

@@ -1,10 +1,23 @@
 <div class="title-wrapper">
+  <% if flash[:answer_message] %>
+  <div class="alert alert-success"><%= flash[:answer_message] %>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  <% end %>
+  <% if flash[:wrong_message] %>
+  <div class="alert alert-danger"><%= flash[:wrong_message] %>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  <% end %>
   <h1 class="text-center"><%= @quiz.content %></h1>
 </div>
 
 <div class="container">
 <%= form_with(url: "/quizzes/check/#{@quiz.id}", method: :post, local: true)  do |form| %>
 <%= form.text_field :answer, class:"form-control" %>
-<%= form.submit %>
+<div class="answer-btn">
+  <%= form.submit :value=>"Answer" ,:class=> "btn btn-outline-success" %>
+</div>
+
 <% end %>
 </div>
