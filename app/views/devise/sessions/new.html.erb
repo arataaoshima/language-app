@@ -1,7 +1,8 @@
 <div class="title-wrapper">
   <h2 class="text-center">ログイン</h2>
 </div>
-<div class="container">
+<div class="container login-wrapper">
+  <div class="login-wrapper">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field form-group">
     <%= f.label :email %><br />
@@ -28,4 +29,5 @@
 <%= link_to 'Googleアカウントでログイン', user_google_oauth2_omniauth_authorize_path, class: "btn btn-outline-success" %><br />
 </div>
 <%= render "devise/shared/links" %>
+</div>
 </div>

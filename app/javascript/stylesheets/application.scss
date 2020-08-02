@@ -1,2 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&display=swap');
+
+@font-face {
+  font-family:'M PLUS 1p';
+  src: font-url('/assets/fonts/MPLUS1p-Regular.ttf')
+}

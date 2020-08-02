@@ -26,7 +26,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  #config.assets.compile = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
@@ -101,6 +101,11 @@ Rails.application.configure do
   authentication: :plain,
   enable_starttls_auto: true
   }
+
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+   config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+   config.serve_static_assets = true
+   config.assets.compile = true
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector

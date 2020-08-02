@@ -4,7 +4,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Signup</h5>
+        <h5 class="modal-title" id="exampleModalLabel">アカウント作成</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -16,19 +16,19 @@
             <div class="form-group"><%= f.label :email %><br />
             <%= f.email_field :email, class:"form-control" %></div>
 
-            <div class="form-group"><%= f.label :name %><br />
+            <div class="form-group"><%= f.label :name, "ユーザーネーム" %><br />
             <%= f.text_field :name, class:"form-control"  %></div>
 
-            <div class="form-group"><%= f.label :password %><br />
+            <div class="form-group"><%= f.label :password, "パスワード" %><br />
             <%= f.password_field :password, class:"form-control"  %></div>
 
-            <div class="form-group"><%= f.label :password_confirmation %><br />
+            <div class="form-group"><%= f.label :password_confirmation, "パスワードをもう一度入力" %><br />
             <%= f.password_field :password_confirmation, class:"form-control"  %></div>
 
-            <div class="form-group"><%= f.submit "Sign up" ,class:"btn btn-outline-primary" %></div>
+            <div class="form-group"><%= f.submit "無料会員登録" ,class:"btn btn-outline-primary" %></div>
             <div class="form-group">
             <a href="/users/auth/google_oauth2">
-            <p>Sign up with Google
+            <p>Googleアカウントを使って作成
             <i class="fab fa-google"></i>
             </p>
             </a>
