@@ -1,17 +1,31 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+<div class="btn-wrapper">
+  <%= link_to "ログイン画面に戻る", new_session_path(resource_name), class: "btn btn-outline-secondary"  %><br />
+</div>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "会員登録", new_registration_path(resource_name), class: "btn btn-outline-primary"  %><br />
+<div class="btn-wrapper">
+  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
+    会員登録
+  </button>
+</div>
+
+
+
+
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "パスワードを忘れた", new_password_path(resource_name), class: "btn"  %><br />
+<div class="btn-wrapper">
+  <%= link_to "パスワードを忘れた", new_password_path(resource_name), class: "btn btn-outline-warning"  %><br />
+</div>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "アカウント認証メールを再送する", new_confirmation_path(resource_name), class: "btn"   %><br />
+<div class="btn-wrapper">
+  <%= link_to "アカウント認証メールを再送する", new_confirmation_path(resource_name), class: "btn btn-outline-warning"   %><br />
+</div>
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
