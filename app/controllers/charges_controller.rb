@@ -18,7 +18,8 @@ class ChargesController < ApplicationController
 
     subscription = Stripe::Subscription.create({
     customer: customer.id,
-    plan: "plan_G8FtqbcawJzjs9"
+    #plan: "plan_G8FtqbcawJzjs9" Canada Dollar
+    plan: "prod_HlMfZ4YNme6FUS" #Japanese Yen
     })
 
     current_user.payment = true
