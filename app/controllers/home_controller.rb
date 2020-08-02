@@ -1,8 +1,15 @@
 class HomeController < ApplicationController
+
+before_action :only_new, only: [:top]
+
   def top
   end
 
   def about
+  end
+
+  def dashboard
+
   end
 
   def index
@@ -25,6 +32,14 @@ class HomeController < ApplicationController
     end
 
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def only_new
+      if user_signed_in?
+        redirect_to dashboard_path
+      end
+    end
 
 
 end

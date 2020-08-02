@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
   <a class="navbar-brand" href="/">ABポータル</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -14,10 +14,10 @@
           <%= current_user.name %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "My Account", edit_user_registration_path, class: "dropdown-item" %>
-          <a class="dropdown-item" href="#">My Courses</a>
+          <%= link_to "アカウント設定", edit_user_registration_path, class: "dropdown-item" %>
+          <a class="dropdown-item" href="/dashboard">ダッシュボード</a>
           <div class="dropdown-divider"></div>
-          <%= link_to "Signout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
 
@@ -39,14 +39,13 @@
         </div>
       </li>
       <% end %>
-      <% if user_signed_in? && current_user.payment != true %>
-      <li class="nav-item">
-        <a class="nav-link" href="/charges/new" tabindex="-1" aria-disabled="true">Subscribe</a>
-      </li>
-      <% end %>
     </ul>
     <ul class="navbar-nav">
-
+      <% if user_signed_in? && current_user.payment != true %>
+      <li class="nav-item">
+        <div class="nav-link"><%= link_to "有料会員になる", "/charges/new", class:"btn btn-outline-primary btn-sm" %></li>
+      </li>
+      <% end %>
     <% if !user_signed_in? %>
     <li class="nav-item">
       <div class="nav-link"><%= link_to "ログイン", new_user_session_path, class:"login-link" %></div>

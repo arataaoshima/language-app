@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :categories
   get 'blogs/users'
   resources :blogs
-
+  get '/dashboard' => "home#dashboard"
+  
   devise_for :users, controllers: {
    omniauth_callbacks: "users/omniauth_callbacks",
    sessions: 'users/sessions',

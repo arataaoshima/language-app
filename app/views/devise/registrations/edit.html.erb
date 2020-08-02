@@ -1,5 +1,5 @@
 <div class="title-wrapper">
-  <h2 class="text-center">Edit My Account</h2>
+  <h2 class="text-center">アカウント設定</h2>
 </div>
 
 <div class="container my-page-wrapper">
@@ -12,7 +12,7 @@
     </div>
 
     <div class="field form-group">
-      <%= f.label :name %><br />
+      <%= f.label :name, "ユーザーネーム" %><br />
       <%= f.text_field :name, class: "form-control" %>
     </div>
 
@@ -22,22 +22,18 @@
     <div class="row">
 
         <div class="field form-group col-6">
-          <%= f.label :create_new_password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.label :create_new_password, "パスワード再設定"%> <i>(変更がない場合は空欄のまま)</i><br />
           <%= f.password_field :password, autocomplete: "new-password", class: "form-control"  %>
-          <% if @minimum_password_length %>
-            <br />
-            <em><%= @minimum_password_length %> characters minimum</em>
-          <% end %>
         </div>
 
         <div class="field form-group col-6">
-          <%= f.label :password_confirmation %><br />
+          <%= f.label :password_confirmation, "新パスワード再入力" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"  %>
         </div>
     </div>
 
     <div class="actions">
-      <%= f.submit "Update" ,class:"btn btn-outline-secondary" %>
+      <%= f.submit "更新" ,class:"btn btn-outline-secondary" %>
     </div>
   <% end %>
 
@@ -46,7 +42,7 @@
   <% end %>
   <div class="text-right">
   <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal1">
-  Delete Account
+  アカウントを削除する
   </button>
   </div>
   <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -70,6 +66,6 @@
 </br>
 
 
-  <%= link_to "Back", :back %>
+  <%= link_to "ダッシュボードに戻る", :back %>
 
 </div>

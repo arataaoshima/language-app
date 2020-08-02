@@ -1,3 +1,4 @@
+<!-- Flash Message -->
 <div class="title-wrapper">
   <% if flash[:answer_message] %>
   <div class="alert alert-success"><%= flash[:answer_message] %>
@@ -12,12 +13,21 @@
   <h1 class="text-center"><%= @quiz.content %></h1>
 </div>
 
+
+<!-- Quiz Content -->
 <div class="container">
 <%= form_with(url: "/quizzes/check/#{@quiz.id}", method: :post, local: true)  do |form| %>
 <%= form.text_field :answer, class:"form-control" %>
 <div class="answer-btn">
   <%= form.submit :value=>"Answer" ,:class=> "btn btn-outline-success" %>
 </div>
+<div class="quiz-link-wrapper text-right">
+  <div class="quiz-link"><%= link_to "レクチャーに戻る", "/videos/#{@video.id}"%></div><br>
+  <div class="quiz-link"><%= link_to "カテゴリートップに戻る", "/categories/#{@quiz.category_id}"%></div>
+
+</div>
 
 <% end %>
+
+
 </div>

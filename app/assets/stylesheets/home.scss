@@ -68,3 +68,20 @@ padding-bottom: 50px;
 .price-small-text {
   font-size: 1.2em;
 }
+
+.login-bg {
+  background-image: url("/nyc.jpg");
+  object-fit: contain;
+  padding-bottom:150px;
+}
+
+.alter-wrapper {
+  margin-top: 60px;
+}
+
+.learning-unit a:hover{
+  text-decoration: none;
+  background-color: white;
+  box-shadow:3px 3px 6px rgba(0,0,0,0.5);
+  color: black;
+}

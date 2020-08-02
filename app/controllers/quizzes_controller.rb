@@ -9,6 +9,7 @@ class QuizzesController < ApplicationController
 
   def  question
     @quiz = Quiz.find_by(category_id: params[:category_id], group_id: params[:group_id], order: params[:order_id])
+    @video = Video.find_by(category_id: params[:category_id], group_id: params[:group_id])
   end
 
   def check

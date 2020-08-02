@@ -15,12 +15,13 @@
  */
 
 .title-wrapper {
-  margin-top: 30px;
+  margin-top: 0px;
   margin-bottom: 40px;
+  padding-top: 80px;
 }
 
 .navbar {
-    background-color:transparent;
+  background-color: rgba(255,255,255,0);
 }
 
 .navbar a:hover {
