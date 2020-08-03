@@ -11,9 +11,37 @@
       Let's Learn <%= @category.category_name %>
     </h1>
   </div>
-  <h2 class="text-center">Texts</h2>
-    <%= will_paginate @blogs%>
 
+
+<!-- Documents -->
+<div class="title-wrapper">
+  <h2 class="text-center">Documents</h2>
+</div>
+  <%= will_paginate @documents%>
+<div class="row">
+  <% @documents.each do |document| %>
+   <div class="col-md-4 col-lg-4 one-row">
+      <div class="card h-100">
+        <a href="/documents/<%= document.id %>">
+          <div class="row-height">
+          <%= image_tag document.cover_image.to_s, class:"card-img-top" %>
+          </div>
+        </a>
+        <div class="card-body">
+          <h5 class="card-title"><%= document.name %></h5>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>
+
+
+
+  <!-- blogs -->
+  <div class="title-wrapper">
+  <h2 class="text-center">Blogs</h2>
+  </div>
+    <%= will_paginate @blogs%>
   <div class="row">
     <% @blogs.each do |blog| %>
      <div class="col-md-4 col-lg-4 one-row">

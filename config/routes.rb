@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :slides
+  resources :documents
   get 'lectures/:category_id/:group_id' => "videos#group_index"
   resources :videos
   resources :groups

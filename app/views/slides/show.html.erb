@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @slide.document_id %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @slide.order %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @slide.image.to_s %>
+</p>
+
+<%= link_to 'Edit', edit_slide_path(@slide) %> |
+<%= link_to 'Back', slides_path %>
