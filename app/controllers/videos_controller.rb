@@ -1,6 +1,8 @@
 class VideosController < ApplicationController
-  before_action :set_video, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user
+  before_action :authenticate_admin!, only: [:index, :edit]
   # GET /videos
   # GET /videos.json
   def index
@@ -72,6 +74,18 @@ class VideosController < ApplicationController
     def set_video
       @video = Video.find(params[:id])
     end
+
+    def authenticate_user
+      if !user_signed_in?
+        redirect_to root_path
+      end
+    end
+
+    def authenticate_admin!
+      authenticate_user!
+      redirect_to root_path  unless current_user.admin?
+    end
+
 
     # Only allow a list of trusted parameters through.
     def video_params

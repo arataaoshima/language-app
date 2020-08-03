@@ -23,11 +23,26 @@
     <div class="oth-info">
       <h3 class="text-center">Other Information</h3>
       <p>Login times: <%= @user.sign_in_count %></p>
-      <p>Registration Date: <%= @user.created_at.in_time_zone('Pacific Time (US & Canada)') %></p>
-      <p>Autehntication Email Sent at: <%= @user.confirmation_sent_at.in_time_zone('Pacific Time (US & Canada)') %></p>
-      <p>Email Comfirmation Date: <%= @user.confirmed_at.in_time_zone('Pacific Time (US & Canada)') %></p>
-      <p>Last Login: <%= @user.last_sign_in_at.in_time_zone('Pacific Time (US & Canada)') %></p>
-      <p>Current Login: <%= @user.current_sign_in_at.in_time_zone('Tokyo') %></p>
+
+      <p>Registration Date:<% if @user.created_at != nil %>
+         <%= @user.created_at.in_time_zone('Pacific Time (US & Canada)') %> <% else %> N/A <% end %>
+      </p>
+
+      <p>Autehntication Email Sent at:
+        <% if @user.confirmation_sent_at != nil %>
+        <%= @user.confirmation_sent_at.in_time_zone('Pacific Time (US & Canada)') %><% else %> N/A <% end %>
+      </p>
+
+      <p>Email Comfirmation Date: <% if @user.confirmed_at != nil %>
+        <%= @user.confirmed_at.in_time_zone('Pacific Time (US & Canada)') %><% else %> N/A <% end %>
+      </p>
+      <p>Last Login: <% if @user.last_sign_in_at != nil %>
+        <%= @user.last_sign_in_at.in_time_zone('Pacific Time (US & Canada)') %><% else %> N/A <% end %>
+      </p>
+      <p>Current Login: <% if @user.current_sign_in_at != nil %>
+        <%= @user.current_sign_in_at.in_time_zone('Tokyo') %><% else %> N/A <% end %>
+      </p>
+
       <p>Admin: <%= @user.admin %></p>
       <p>Subscription: <%= @user.payment %></p>
       <p>Stripe ID: <%= @user.stripe_id%></p>

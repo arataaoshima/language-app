@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin!, only: [:index, :edit]
   # GET /blogs
   # GET /blogs.json
   def index
@@ -10,7 +10,7 @@ class BlogsController < ApplicationController
   def users
     @blogs = Blog.search(params[:search]).paginate(page: params[:page], per_page: 3).order("updated_at DESC")
   end
-  
+
 
   # GET /blogs/1
   # GET /blogs/1.json
@@ -76,4 +76,10 @@ class BlogsController < ApplicationController
     def blog_params
       params.require(:blog).permit(:title, :content, :image, :category_id)
     end
+
+    def authenticate_admin!
+      authenticate_user!
+      redirect_to root_path  unless current_user.admin?
+    end
+
 end

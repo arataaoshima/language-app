@@ -1,6 +1,8 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user
+  before_action :authenticate_admin!, only: [:index, :edit]
   # GET /groups
   # GET /groups.json
   def index
@@ -66,6 +68,18 @@ class GroupsController < ApplicationController
     def set_group
       @group = Group.find(params[:id])
     end
+
+    def authenticate_user
+      if !user_signed_in?
+        redirect_to root_path
+      end
+    end
+
+    def authenticate_admin!
+      authenticate_user!
+      redirect_to root_path  unless current_user.admin?
+    end
+
 
     # Only allow a list of trusted parameters through.
     def group_params

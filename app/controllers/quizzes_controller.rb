@@ -1,6 +1,8 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_quiz, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user
+  before_action :authenticate_admin!, only: [:index, :edit]
   # GET /quizzes
   # GET /quizzes.json
   def index
@@ -14,6 +16,7 @@ class QuizzesController < ApplicationController
 
   def check
     @quiz = Quiz.find(params[:id])
+    @video = Video.find(params[:video_id])
     next_quiz_order = @quiz.order+1
 
     if @quiz.answer == params[:answer]
@@ -90,6 +93,17 @@ class QuizzesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_quiz
       @quiz = Quiz.find(params[:id])
+    end
+
+    def authenticate_user
+      if !user_signed_in?
+        redirect_to root_path
+      end
+    end
+
+    def authenticate_admin!
+      authenticate_user!
+      redirect_to root_path  unless current_user.admin?
     end
 
     # Only allow a list of trusted parameters through.

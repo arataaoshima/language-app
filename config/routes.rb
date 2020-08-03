@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   resources :groups
   get '/registrations' => "home#registrations"
   get 'quiz/:category_id/:group_id/:order_id' => 'quizzes#question'
-  post 'quizzes/check/:id' => 'quizzes#check'
+  post 'quizzes/check/:id/:video_id' => 'quizzes#check'
   resources :quizzes
   resources :categories
   get 'blogs/users'
   resources :blogs
   get '/dashboard' => "home#dashboard"
-  
+
   devise_for :users, controllers: {
    omniauth_callbacks: "users/omniauth_callbacks",
    sessions: 'users/sessions',

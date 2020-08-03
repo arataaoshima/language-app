@@ -11,7 +11,7 @@
       Let's Learn <%= @category.category_name %>
     </h1>
   </div>
-  <h2 class="text-center">Blogs</h2>
+  <h2 class="text-center">Texts</h2>
     <%= will_paginate @blogs%>
 
   <div class="row">
@@ -38,7 +38,7 @@
   <% if user_signed_in? %>
 
     <div class="title-wrapper">
-      <h2 class="text-center">Learning Units</h2>
+      <h2 class="text-center"> Video Lectures</h2>
     </div>
     <% @videos.each do |video| %>
     <div class="card learning-unit">
@@ -52,14 +52,6 @@
     <% end %>
 
   <% else %>
-  <div class="title-wrapper">
-    <h2 class="text-center">Signup for free</h2>
-    </div>
-    <div class="text-center category-btn ">
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
-        無料会員登録
-      </button>
-  </div>
   <% end %>
   <% if user_signed_in? && current_user.admin == true %>
   <%= link_to 'Edit', edit_category_path(@category) %> |

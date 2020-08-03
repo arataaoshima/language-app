@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
 
 before_action :only_new, only: [:top]
+before_action :authenticate_user, only: [:dashboard, :index, :profile, :update]
+before_action :authenticate_admin!, only: [:index, :profile]
 
   def top
   end
@@ -40,6 +42,18 @@ before_action :only_new, only: [:top]
         redirect_to dashboard_path
       end
     end
+
+    def authenticate_user
+      if !user_signed_in?
+        redirect_to root_path
+      end
+    end
+
+    def authenticate_admin!
+      authenticate_user!
+      redirect_to dashboard_path  unless current_user.admin?
+    end
+
 
 
 end

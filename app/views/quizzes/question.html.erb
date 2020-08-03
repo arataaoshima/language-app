@@ -16,7 +16,7 @@
 
 <!-- Quiz Content -->
 <div class="container">
-<%= form_with(url: "/quizzes/check/#{@quiz.id}", method: :post, local: true)  do |form| %>
+<%= form_with(url: "/quizzes/check/#{@quiz.id}/#{@video.id}", method: :post, local: true)  do |form| %>
 <%= form.text_field :answer, class:"form-control" %>
 <div class="answer-btn">
   <%= form.submit :value=>"Answer" ,:class=> "btn btn-outline-success" %>
