@@ -23,10 +23,11 @@
     <div class="oth-info">
       <h3 class="text-center">Other Information</h3>
       <p>Login times: <%= @user.sign_in_count %></p>
-      <p>Registration Date: <%= @user.created_at %></p>
-      <p>Autehntication Email Sent at: <%= @user.confirmation_sent_at %></p>
-      <p>Email Comfirmation Date: <%= @user.confirmed_at %></p>
-      <p>Last Login: <%= @user.current_sign_in_at %></p>
+      <p>Registration Date: <%= @user.created_at.in_time_zone('Pacific Time (US & Canada)') %></p>
+      <p>Autehntication Email Sent at: <%= @user.confirmation_sent_at.in_time_zone('Pacific Time (US & Canada)') %></p>
+      <p>Email Comfirmation Date: <%= @user.confirmed_at.in_time_zone('Pacific Time (US & Canada)') %></p>
+      <p>Last Login: <%= @user.last_sign_in_at.in_time_zone('Pacific Time (US & Canada)') %></p>
+      <p>Current Login: <%= @user.current_sign_in_at.in_time_zone('Tokyo') %></p>
       <p>Admin: <%= @user.admin %></p>
       <p>Subscription: <%= @user.payment %></p>
       <p>Stripe ID: <%= @user.stripe_id%></p>

@@ -19,7 +19,7 @@ class ChargesController < ApplicationController
     subscription = Stripe::Subscription.create({
     customer: customer.id,
     #plan: "plan_G8FtqbcawJzjs9" Canada Dollar
-    plan: "prod_HlMfZ4YNme6FUS" #Japanese Yen
+    plan: "price_1HBpw0A2USbJix7fP0PGUrXp" #Japanese Yen
     })
 
     current_user.payment = true
@@ -27,7 +27,6 @@ class ChargesController < ApplicationController
     current_user.subscription_id = subscription.id
     current_user.purchase_date = subscription.created
     current_user.save
-
 
   #  charge = Stripe::Charge.create({
   #    customer: customer.id,
@@ -38,7 +37,7 @@ class ChargesController < ApplicationController
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
-      redirect_to new_charge_path
+      redirect_to "new_charge_path"
    end
 
    def unsubscribe
@@ -53,7 +52,7 @@ class ChargesController < ApplicationController
       current_user.cancel_date = subscription.canceled_at
       current_user.save
 
-      redirect_to new_charge_path
+      redirect_to dashboard_path
 
    end
 
