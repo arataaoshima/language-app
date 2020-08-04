@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin!, only: [:index, :edit]
   # GET /documents
   # GET /documents.json
   def index
@@ -66,6 +66,12 @@ class DocumentsController < ApplicationController
     def set_document
       @document = Document.find(params[:id])
     end
+
+    def authenticate_admin!
+      authenticate_user!
+      redirect_to root_path  unless current_user.admin?
+    end
+
 
     # Only allow a list of trusted parameters through.
     def document_params

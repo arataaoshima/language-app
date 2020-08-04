@@ -1,6 +1,6 @@
 class SlidesController < ApplicationController
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin!, only: [:index, :edit]
   # GET /slides
   # GET /slides.json
   def index
@@ -66,6 +66,12 @@ class SlidesController < ApplicationController
     def set_slide
       @slide = Slide.find(params[:id])
     end
+
+    def authenticate_admin!
+      authenticate_user!
+      redirect_to root_path  unless current_user.admin?
+    end
+
 
     # Only allow a list of trusted parameters through.
     def slide_params
