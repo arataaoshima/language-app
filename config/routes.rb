@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_quizzes
   resources :options
   resources :slides
   resources :documents

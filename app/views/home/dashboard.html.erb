@@ -3,15 +3,19 @@
 </div>
 
 <div class="completed-courses">
-
+<% current_user.quizzes.each do |quiz| %>
+<%= quiz.id %>
+<% end %>
 </div>
 
 <div class="title-wrapper home-subtitle">
   <h2 class="text-center">学習分野</h2>
 </div>
 <div class="container">
-  <div class="row">
+  <div class="dashboard-wrapper">
 
+
+  <div class="row">
     <div class="top-icon col-3 text-center">
       <a href="/categories/1" class="link-no-effect"><i class="fas fa-search fa-9x icon-black"></i></a></br>
     仕事探し
@@ -31,5 +35,7 @@
       <a href="/categories/4" class="link-no-effect"><i class="fas fa-briefcase fa-9x icon-black"></i></a></br>
     その他
     </div>
+  </div>
+
   </div>
 </div>
