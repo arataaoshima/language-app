@@ -5,13 +5,14 @@ before_action :authenticate_user, only: [:dashboard, :index, :profile, :update]
 before_action :authenticate_admin!, only: [:index, :profile]
 
   def top
+    @blogs = Blog.first(3)
   end
 
   def about
   end
 
   def dashboard
-
+@blogs = Blog.first(3)
   end
 
   def index

@@ -1,9 +1,10 @@
 <div class="title-wrapper home-top">
-  <h1 class="text-center">海外就職を学んで<br>海外で働く夢を叶えよう！</h1>
+  <h1 class="text-center">海外で働くためのオンラインスクール</h1>
+　<h4 class="text-center">ABポータルで勉強して海外で働く夢を叶えよう</h4>
 
 <% if !user_signed_in? %>
   <div class="text-center">
-    <button type="button btn-wrapper" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
+    <button type="button btn-wrapper" class="btn btn-primary btn-lg signup-btn btn-wrapper" data-toggle="modal" data-target="#exampleModal">
       勉強を始める
     </button>
   </div>
@@ -11,19 +12,7 @@
 </div>
 
 <div class=""><img src="/work.jpg" class="top-img"></div>
-<!--
-<div class="top-content-wrapper container">
-  <div class="top-top row">
-    <div class="top-left col-6 text-center">
-      <h3>Hello World!</h3>
-      <p class="top-message">I’m a travel educator who has been abroad since June 2011!</p>
-      <p class="top-message">Traveller - Master Languageis all abouts  Travel Language.</p>
-      <p class="top-message">From close trips to travel far away, let’s enjoy!</p>
-    </div>
 
-    <div class="top-right coltext-center"><img src="/office.jpg" class="top-img"></div>
-  </div>
--->
 <div class="title-wrapper home-subtitle">
   <h2 class="text-center">分野別学習を通じて、就職活動のあらゆるステージをカバー</h2>
 </div>
@@ -50,6 +39,32 @@
     その他
     </div>
   </div>
+</div>
+
+<!-- Interviews -->
+<div class="title-wrapper home-subtitle">
+  <h2 class="text-center">海外で働くの人のインタビュー</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <% @blogs.each do |blog| %>
+     <div class="col-md-4 col-lg-4 one-row">
+        <div class="card h-100">
+          <a href="/blogs/<%= blog.id %>">
+            <div class="row-height">
+            <%= image_tag blog.image.to_s, class:"card-img-top" %>
+            </div>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title"><%= blog.title %></h5>
+            <div class='time-t'>
+              <p class="card-text time"><small class="text-muted">Last updated: <%= blog.updated_at.year %>-<%= blog.updated_at.month %>-<%= blog.updated_at.day %></small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+   </div>
 </div>
   <!-- Price Explanation -->
   <div class="title-wrapper home-subtitle">
@@ -86,8 +101,8 @@
     <h2 class="text-center">海外就職のための一歩を踏み出そう</h2>
   </div>
     <div class="text-center">
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
-        無料会員登録
+      <button type="button" class="btn btn-primary btn-lg signup-btn rounded" data-toggle="modal" data-target="#exampleModal">
+        無料ではじめる
       </button>
     </div>
    <% end %>
