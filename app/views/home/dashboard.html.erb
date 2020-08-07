@@ -2,11 +2,13 @@
   <h1 class='text-center'>ダッシュボード</h1>
 </div>
 
+<% if current_user.quizzes%>
 <div class="completed-courses">
 <% current_user.quizzes.each do |quiz| %>
 <%= quiz.id %>
 <% end %>
 </div>
+<% end %>
 
 <div class="title-wrapper home-subtitle">
   <h2 class="text-center">学習分野</h2>
