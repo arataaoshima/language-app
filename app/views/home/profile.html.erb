@@ -18,6 +18,14 @@
     <%= form.label :admin, 'No'%>
     <%= form.radio_button :admin, false %>
   </p>
+   <p>Subscription: <strong><%= @user.payment %></strong></p>
+   <p> Do you want to change to "Subscribed"?
+     <%= form.label :payment, "Yes", {value: :true, style: "display: inline-block;"} %>
+     <%= form.radio_button :payment, :true %>
+     <%= form.label :payment, "No", {value: :false, style: "display: inline-block;"} %>
+     <%= form.radio_button :payment, :false %>
+   </p>
+
     <%= form.submit class:"btn btn-outline-secondary" %>
   <% end %>
     <div class="oth-info">
@@ -28,9 +36,13 @@
          <%= @user.created_at.in_time_zone('Pacific Time (US & Canada)') %> <% else %> N/A <% end %>
       </p>
 
-      <p>Autehntication Email Sent at:
+      <p>Authentication Email Sent at:
         <% if @user.confirmation_sent_at != nil %>
         <%= @user.confirmation_sent_at.in_time_zone('Pacific Time (US & Canada)') %><% else %> N/A <% end %>
+      </p>
+      <p>Comfirmation Token:
+        <strong><%=@user.confirmation_token %></strong><br>
+        /users/confirmation?confirmation_token=token で認証可
       </p>
 
       <p>Email Comfirmation Date: <% if @user.confirmed_at != nil %>
@@ -40,11 +52,11 @@
         <%= @user.last_sign_in_at.in_time_zone('Pacific Time (US & Canada)') %><% else %> N/A <% end %>
       </p>
       <p>Current Login: <% if @user.current_sign_in_at != nil %>
-        <%= @user.current_sign_in_at.in_time_zone('Tokyo') %><% else %> N/A <% end %>
+        <%= @user.current_sign_in_at.in_time_zone('Pacific Time (US & Canada)') %><% else %> N/A <% end %>
       </p>
 
       <p>Admin: <%= @user.admin %></p>
-      <p>Subscription: <%= @user.payment %></p>
+
       <p>Stripe ID: <%= @user.stripe_id%></p>
       <p>Subscription ID: <%= @user.subscription_id%></p>
       <p>Purchase Date: <% if @user.purchase_date != nil %>

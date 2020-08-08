@@ -28,6 +28,7 @@ before_action :authenticate_admin!, only: [:index, :profile]
     @user.name = params[:name]
     @user.email = params[:email]
     @user.admin = params[:admin]
+    @user.payment = params[:payment]
     if @user.save
       redirect_to "/home/index"
     else
