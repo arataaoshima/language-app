@@ -12,12 +12,12 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="<%= slide.order+1 %>"></li>
         <% end %>
       </ol>
-      <div class="carousel-item active carousel-item-1st">
-        <%= image_tag @document.first_page_image.to_s, class:"d-block w-100" %>
+      <div class="carousel-item active">
+        <%= image_tag @document.first_page_image.to_s, class:"d-block w-100 document-img" %>
       </div>
       <% @document.slides.each do |slide| %>
       <div class="carousel-item">
-        <%= image_tag slide.image.to_s, class:"d-block w-100" %>
+        <%= image_tag slide.image.to_s, class:"d-block w-100 document-img" %>
       </div>
       <% end %>
     </div>
