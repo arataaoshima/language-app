@@ -12,7 +12,6 @@
     </h1>
   </div>
 
-
 <!-- Documents -->
 <div class="title-wrapper">
   <h2 class="text-center">Documents</h2>
@@ -35,32 +34,29 @@
     <% end %>
 </div>
 
-
-
-  <!-- blogs -->
+  <!-- interviews -->
   <div class="title-wrapper">
-  <h2 class="text-center">Blogs</h2>
+  <h2 class="text-center">関連トップインタビュー</h2>
   </div>
-    <%= will_paginate @blogs%>
-  <div class="row">
-    <% @blogs.each do |blog| %>
-     <div class="col-md-4 col-lg-4 one-row">
-        <div class="card h-100">
-          <a href="/blogs/<%= blog.id %>">
-            <div class="row-height">
-            <%= image_tag blog.image.to_s, class:"card-img-top" %>
-            </div>
-          </a>
-          <div class="card-body">
-            <h5 class="card-title"><%= blog.title %></h5>
-            <div class='time-t'>
-              <p class="card-text time"><small class="text-muted">Last updated: <%= blog.updated_at.year %>-<%= blog.updated_at.month %>-<%= blog.updated_at.day %></small></p>
+    <div class="row">
+      <% @interviews.each do |interview| %>
+       <div class="col-md-4 col-lg-4 one-row">
+          <div class="card h-100">
+            <a href="/interviews/<%= interview.id %>">
+              <div class="row-height">
+              <%= image_tag interview.image.to_s, class:"card-img-top" %>
+              </div>
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><%= interview.title %></h5>
             </div>
           </div>
         </div>
-      </div>
-      <% end %>
-  </div>
+        <% end %>
+    </div>
+    <div class="btn-wrapper text-right">
+      <%= link_to "インタービュー一覧", interviews_path, class:"btn btn-outline-secondary" %>
+    </div>
 
 <div class="lectures-wrapper">
   <% if user_signed_in? %>

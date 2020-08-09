@@ -43,27 +43,28 @@
 
 
   <div class="title-wrapper home-subtitle">
-    <h2 class="text-center">海外で働くの人のインタビュー</h2>
+    <h2 class="text-center">最新インタビュー</h2>
   </div>
+
   <div class="container">
     <div class="row">
-      <% @blogs.each do |blog| %>
+      <% @interviews.each do |interview| %>
        <div class="col-md-4 col-lg-4 one-row">
           <div class="card h-100">
-            <a href="/blogs/<%= blog.id %>">
+            <a href="/interviews/<%= interview.id %>">
               <div class="row-height">
-              <%= image_tag blog.image.to_s, class:"card-img-top" %>
+              <%= image_tag interview.image.to_s, class:"card-img-top" %>
               </div>
             </a>
             <div class="card-body">
-              <h5 class="card-title"><%= blog.title %></h5>
-              <div class='time-t'>
-                <p class="card-text time"><small class="text-muted">Last updated: <%= blog.updated_at.year %>-<%= blog.updated_at.month %>-<%= blog.updated_at.day %></small></p>
-              </div>
+              <h5 class="card-title"><%= interview.title %></h5>
             </div>
           </div>
         </div>
         <% end %>
+     </div>
+     <div class="btn-wrapper text-right">
+       <%= link_to "インタービュー一覧", interviews_path, class:"btn btn-outline-secondary" %>
      </div>
   </div>
   </div>

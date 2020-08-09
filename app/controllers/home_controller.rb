@@ -5,14 +5,15 @@ before_action :authenticate_user, only: [:dashboard, :index, :profile, :update]
 before_action :authenticate_admin!, only: [:index, :profile]
 
   def top
-    @blogs = Blog.first(3)
+    @blogs = Blog.all
   end
 
   def about
   end
 
   def dashboard
-@blogs = Blog.first(3)
+    @interviews = Interview.paginate(page: params[:page], per_page: 3).order("updated_at DESC")
+    @blogs = Blog.paginate(page: params[:page], per_page: 3).order("updated_at DESC")
   end
 
   def index

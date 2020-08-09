@@ -4,4 +4,5 @@ class Category < ApplicationRecord
   has_many :quizzes
   has_many :videos
   has_many :documents
+  has_many :interviews
 end

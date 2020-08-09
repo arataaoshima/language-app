@@ -1,0 +1,23 @@
+<div class="title-wrapper">
+  <h2 class="text-center"><%= @interview.title %></h2>
+</div>
+<div class="container">
+  <p>
+    <div class="btn">
+      <%= @interview.category.category_name %>
+    </div>
+  </p>
+
+  <p>
+    <div class="interview-img-wrapper">
+    <%= image_tag @interview.image.to_s %>
+    </div>
+  </p>
+
+  <div class="blog-content-wrapper">
+  <%= @interview.content %>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_interview_path(@interview) %> |
+<%= link_to 'Back', interviews_path %>

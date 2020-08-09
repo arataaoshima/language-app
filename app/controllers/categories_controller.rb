@@ -15,6 +15,7 @@ class CategoriesController < ApplicationController
     @groups = Group.all
     @videos = Video.where(category_id: @category.id)
     @documents = @category.documents.paginate(page: params[:page], per_page: 3).order("updated_at DESC")
+    @interviews = @category.interviews.order("updated_at DESC").first(3)
   end
 
   # GET /categories/new
