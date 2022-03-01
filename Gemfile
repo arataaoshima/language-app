@@ -27,7 +27,7 @@ gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 # Use Active Storage variant
 gem 'actiontext'
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 gem 'carrierwave'
 gem 'aws-sdk-s3'
 gem 'fog-aws'
